@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Socket.IO Test</h1>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script>
+      const socket = io("http://localhost:4000");
+
+      socket.on("connect", () => {
+        console.log("✅ Connected with socket ID:", socket.id);
+      });
+
+      socket.on("alert", (data) => {
+        console.log("🚨 ALERT:", data);
+      });
+
+      socket.on("connect_error", (err) => {
+        console.error("❌ Connect error:", err.message);
+      });
+    </script>
+  </body>
+</html>
